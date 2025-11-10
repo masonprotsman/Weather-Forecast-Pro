@@ -5,6 +5,7 @@ import * as LucideIcons from 'lucide-react';
 // Add interface for forecast data
 interface ForecastItem {
     dt: number;
+    pop: number;
     main: {
         temp: number;
         temp_min: number;
@@ -21,7 +22,7 @@ interface DailyForecast {
 }
 
 // Update function signature with types
-function WeatherForecast({ forecast, unit }: { forecast: { list: ForecastItem[] }; unit: string }) {
+function WeatherForecast({ forecast, unit }: { forecast: { list: ForecastItem[] }; unit: string | null }) {
     const dailyForecast: DailyForecast = forecast.list.reduce((acc: DailyForecast, item: ForecastItem) => {
         const date = new Date(item.dt * 1000).toDateString();
         if (!acc[date]) {
@@ -67,7 +68,7 @@ function WeatherForecast({ forecast, unit }: { forecast: { list: ForecastItem[] 
                                     <Droplets className="w-4 h-4 text-blue-300" />
                                     <span className="text-sm font-medium">
                                         {/* dynamic details */}
-                                        {Math.round(item.pop * 100)}%
+                                        {Math.round(item?.pop * 100)}%
                                     </span>
                                 </div>
                                 <div className="text-right">

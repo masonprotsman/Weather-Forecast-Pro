@@ -20,7 +20,7 @@ export const getWeatherIcon = (weather: any) => {
     return iconMap[weather.main] || "Cloud";
 };
 
-export const formatTemperature = (temp: number, unit: string) => {
+export const formatTemperature = (temp: number, unit: string | null) => {
     if (unit === "C") {
         return `${Math.round(temp)}`;
     } else {

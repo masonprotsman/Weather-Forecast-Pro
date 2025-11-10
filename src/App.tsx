@@ -1,4 +1,3 @@
-import React from 'react'
 import SearchBar from './components/SearchBar';
 import TemperatureToggle from './components/TemperatureToggle';
 import LoadingSpinner from './components/LoadingSpinner';

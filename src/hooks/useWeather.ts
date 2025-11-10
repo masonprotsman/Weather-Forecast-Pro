@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getCurrentWeather, getCurrentWeatherByCoords, getWeatherForecast } from "../services/weatherAPI";
 
 const useWeather = () => {
@@ -6,9 +6,9 @@ const useWeather = () => {
     const [forecast, setForecast] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [unit, setUnits] = useState("F");
+    const [unit, setUnits] = useState<string | null>("F");
 
-    const fetchWeatherByCity = async (city) => {
+    const fetchWeatherByCity = async (city: any) => {
         setLoading(true);
         setError(null);
         try {
@@ -49,8 +49,8 @@ const useWeather = () => {
                 setLoading(false);
             }
         },
-        (error) => {
-            setError("Unable to retrieve your location. Please allow location access and try again.");
+        error => {
+            setError(`${error.message}`);
             setLoading(false);
         }
     );

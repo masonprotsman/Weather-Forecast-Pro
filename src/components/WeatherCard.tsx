@@ -3,7 +3,7 @@ import React from "react";
 import { formatTemperature, formatTime, getWeatherIcon } from "../utils/weatherutils";
 import * as LucideIcons from "lucide-react";
 
-function WeatherCard({ weather, unit }: { weather: any; unit?: string }) {
+function WeatherCard({ weather, unit }: { weather: any; unit?: string | null }) {
 
     const iconName = getWeatherIcon(weather.weather[0]) as keyof typeof LucideIcons;
     const RawIcon = LucideIcons[iconName] ?? LucideIcons.Cloud;

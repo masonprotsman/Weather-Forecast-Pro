@@ -1,7 +1,6 @@
 import { AlertCircle, RefreshCw } from 'lucide-react';
-import React from 'react';
 
-function ErrorMessage({ message, onRetry }) {
+function ErrorMessage({ message, onRetry }: { message: string, onRetry?: () => void }) {
     return (
         <div className="bg-red-500 backdrog-blur-xl border border-red-400/20 rounded-3xl p-8 shadow-2xl">
             <div className="flex items-center space-x-4 mb-4">

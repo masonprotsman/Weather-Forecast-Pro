@@ -2,7 +2,7 @@ import { MapPin, Search, X } from 'lucide-react'
 import React, { useEffect, useRef } from 'react'
 import { searchCities } from '../services/weatherAPI';
 
-function SearchBar({ loading, onSearch, onLocationSearch }) {
+function SearchBar({ loading, onSearch, onLocationSearch }: { loading: boolean, onSearch: (query: string) => void, onLocationSearch: () => void }) {
 
     const [query, setQuery] = React.useState("");
     const [suggestions, setSuggestions] = React.useState<City[]>([]);
@@ -19,11 +19,11 @@ function SearchBar({ loading, onSearch, onLocationSearch }) {
         lon: number;
     }
 
-    const searchRef = useRef();
+    const searchRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (searchRef.current && !searchRef.current.contains(event.target)) {
+        const handleClickOutside = (event: any) => {
+            if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
                 setShowSuggestions(false);
             }
         };
@@ -57,7 +57,7 @@ function SearchBar({ loading, onSearch, onLocationSearch }) {
         return () => clearTimeout(searchTimeOut);
     }, [query]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault();
         if (query.trim()) {
             onSearch(query.trim());
@@ -83,7 +83,7 @@ function SearchBar({ loading, onSearch, onLocationSearch }) {
     }
 
     return (
-        <div className="relative w-full max-w-2xl">
+        <div ref={searchRef} className="relative w-full max-w-2xl">
             <form className="relative" onSubmit={handleSubmit}>
                 <div className="relative group">
                     <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-grey/60 w-5 h-5 group-focus-within:text-white transition-all" />
