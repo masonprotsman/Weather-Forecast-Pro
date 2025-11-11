@@ -40,7 +40,7 @@ function App() {
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Pro</span>
               </h1>
               <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
-                Experiance weather like never before with real-time data, beautiful visuals, and preciseforecasts for any location worldwide.
+                Real-time data, precise forecasts, 5 day weather predictions for any location worldwide.
               </p>
             </div>
             <div className="flex flex-col lg:flex-row items-center justify-center space-y-4 lg:space-y-0 lg:space-x-6 mb-12">
