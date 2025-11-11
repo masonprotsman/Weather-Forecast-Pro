@@ -31,11 +31,11 @@ function App() {
 
       {/* Foreground content in normal flow so the page can scroll */}
       <div className="relative">
-        <div className="max-w-7xl mb-40 mx-auto px-4">
+        <div className="max-w-7xl mb-30 mx-auto px-4">
           {/* header section */}
           <div className="text-center mb-12">
             <div className="mb-8">
-              <h1 className="text-5xl md:text-7xl font-bold text-white mt-40 mb-4 drop-shadow-2xl tracking-tight">
+              <h1 className="text-5xl md:text-7xl font-bold text-white mt-30 mb-4 drop-shadow-2xl tracking-tight">
                 Weather
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Pro</span>
               </h1>
